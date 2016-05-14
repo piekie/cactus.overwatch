@@ -6,9 +6,9 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.dna.cactusoverwatch.utils.Authentication;
+import com.dna.cactusoverwatch.utils.Hierarchy;
 import com.firebase.client.Firebase;
 
 public class LoginActivity extends AppCompatActivity {
@@ -21,10 +21,9 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-//        setSupportActionBar(toolbar);
 
         Firebase.setAndroidContext(this);
+        final Firebase root = new Firebase(Hierarchy.DB_ROOT);
 
         etEmail = (EditText) findViewById(R.id.et_email);
         etPassword = (EditText) findViewById(R.id.et_password);
@@ -33,15 +32,18 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
-                String email = etEmail.getText().toString();
-                String password = etPassword.getText().toString();
+                final int action = motionEvent.getAction();
 
-                boolean success = Authentication.login(email, password);
+                switch (action) {
+                    case MotionEvent.ACTION_CANCEL:
+                    case MotionEvent.ACTION_UP:
+                        String email = etEmail.getText().toString();
+                        String password = etPassword.getText().toString();
 
-                if (success) {
-                    Toast.makeText(getApplicationContext(), "login success", Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(getApplicationContext(), "login failure", Toast.LENGTH_SHORT).show();
+                        Authentication.login(root, email, password);
+                        break;
+                    default:
+                        break;
                 }
                 return true;
             }
@@ -51,29 +53,22 @@ public class LoginActivity extends AppCompatActivity {
         btnSignUp.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
-                String email = etEmail.getText().toString();
-                String password = etPassword.getText().toString();
+                final int action = motionEvent.getAction();
 
-                boolean success = Authentication.signup(email, password);
+                switch (action) {
+                    case MotionEvent.ACTION_CANCEL:
+                    case MotionEvent.ACTION_UP:
+                        String email = etEmail.getText().toString();
+                        String password = etPassword.getText().toString();
 
-                if (success) {
-                    Toast.makeText(getApplicationContext(), "signup success", Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(getApplicationContext(), "signup failure", Toast.LENGTH_SHORT).show();
+                        Authentication.signup(root, email, password);
+                    default:
+                        break;
                 }
+
                 return true;
             }
         });
-
-
-//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-//            }
-//        });
     }
 
 }

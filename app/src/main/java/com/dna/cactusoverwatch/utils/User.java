@@ -1,5 +1,7 @@
 package com.dna.cactusoverwatch.utils;
 
+import java.util.ArrayList;
+
 /**
  * Created by piekie on 5/14/2016.
  */
@@ -7,10 +9,16 @@ public class User {
     private String email;
     private String password;
 
-    private long score;
-    private long watched_list;
+    private String name;
 
-    public User(String email, String password) {
+    private long score;
+
+    private ArrayList<String> accepted;
+    private ArrayList<String> cancelled;
+    private ArrayList<String> skipped;
+
+
+    public User(String name, String email, String password) {
         this.email = email;
         this.password = password;
     }
@@ -29,5 +37,13 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }
