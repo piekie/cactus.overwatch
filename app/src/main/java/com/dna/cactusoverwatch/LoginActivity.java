@@ -1,5 +1,6 @@
 package com.dna.cactusoverwatch;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MotionEvent;
@@ -58,10 +59,12 @@ public class LoginActivity extends AppCompatActivity {
                 switch (action) {
                     case MotionEvent.ACTION_CANCEL:
                     case MotionEvent.ACTION_UP:
-                        String email = etEmail.getText().toString();
-                        String password = etPassword.getText().toString();
+                        Intent intent = new Intent(getApplicationContext(), RegistrationActivity.class);
 
-                        Authentication.signup(root, email, password);
+                        intent.putExtra("email", etEmail.getText().toString());
+                        intent.putExtra("password", etPassword.getText().toString());
+
+                        startActivity(intent);
                     default:
                         break;
                 }
