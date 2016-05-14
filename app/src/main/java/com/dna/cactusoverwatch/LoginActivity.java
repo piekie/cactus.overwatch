@@ -21,6 +21,7 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin = (Button)findViewById(R.id.button_login);
         Button btnSignUp = (Button)findViewById(R.id.button_sign_up);
 
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
