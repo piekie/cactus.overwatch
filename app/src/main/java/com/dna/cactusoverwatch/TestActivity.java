@@ -13,10 +13,5 @@ public class TestActivity extends AppCompatActivity {
         setContentView(R.layout.activity_test);
 
         Firebase.setAndroidContext(this);
-        Firebase root = new Firebase("https://amanda.firebaseio.com/");
-
-        String s = "hello world";
-
-        root.setValue(s);
     }
 }
