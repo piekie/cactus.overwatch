@@ -2,7 +2,10 @@ package com.dna.cactusoverwatch.prozorroUtils;
 
 import android.os.AsyncTask;
 
+import com.shaded.fasterxml.jackson.databind.util.JSONPObject;
+
 import org.json.JSONArray;
+import org.json.JSONObject;
 import org.shaded.apache.http.util.ByteArrayBuffer;
 
 import java.io.BufferedInputStream;
@@ -42,7 +45,8 @@ public class ProgressTask extends AsyncTask<String, Void, String> {
                 }
 
                 temp = new String(baf.toByteArray());
-                jA.put(temp);
+                JSONObject j = new JSONObject(temp);
+                jA.put(j);
             }
 
             if (Integer.parseInt(arg0[0]) == 1) {

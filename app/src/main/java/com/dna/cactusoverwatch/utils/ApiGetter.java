@@ -4,7 +4,6 @@ import android.util.Log;
 
 import com.dna.cactusoverwatch.cashe.TendersCache;
 import com.dna.cactusoverwatch.prozorroUtils.ProgressTask;
-import com.shaded.fasterxml.jackson.databind.util.JSONPObject;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -33,14 +32,14 @@ public class ApiGetter {
         }
 
         Random r = new Random();
-        int[] random = new int[20];
+        int[] random = new int[10];
         for (int i = 0; i < random.length; i++) {
             random[i] = r.nextInt(100);
         }
 
-        String[] ids = new String[21];
-        String[] ids_access = new String[20];
-        ids[0] = "20";
+        String[] ids = new String[11];
+        String[] ids_access = new String[10];
+        ids[0] = "10";
 
         try {
             JSONObject parsed = new JSONObject(result);
@@ -65,12 +64,12 @@ public class ApiGetter {
         }
 
         try {
-            JSONArray parsed = new JSONArray(result);
+            JSONArray got = new JSONArray(result);
 
             for (int i = 0; i < 5; i++) {
-                JSONObject obj = parsed.getJSONObject(i);
+                JSONObject obj = got.getJSONObject(i);
 
-                String description = obj.getJSONObject("classification").getString("description");
+                String description = "";
                 String amount = obj.getJSONObject("value").getString("amount");
                 String title = obj.getJSONObject("procuringEntity").getString("name");
                 String status = obj.getString("status");
@@ -79,18 +78,18 @@ public class ApiGetter {
                 String end_price = amount; //TODO:
                 String executor = "";
 
-                if (status.equals("closed")) {
+              //  if (status.equals("closed")) {
 //                    executor;
 //                    end_price = ""
 //                    end_date = obj.
-                }
+                //}
 
                 Tender t = new Tender(ids_access[i], description, title, status, amount, end_price, start_date, end_date, executor);
                 TendersCache.tenders.add(t);
 
             }
 
-        } catch (JSONException e) {
+        } catch (JSONException e){
             e.printStackTrace();
         }
 
