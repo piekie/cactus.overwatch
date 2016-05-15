@@ -39,10 +39,15 @@ public class DetailsActivity extends AppCompatActivity {
         toolbar.setTitle("Тендери");
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
         mPagerDetail = (ViewPager) findViewById(R.id.viewPager);
         myAdapterDetail = new MyAdapterDetail(getSupportFragmentManager(), TendersCache.tenders);
         mPagerDetail.setAdapter(myAdapterDetail);
+        String id = getIntent().getExtras().getString("tenderId");
+        for (int i = 0; i < TendersCache.tenders.size(); i++) {
+            if (TendersCache.tenders.get(i).getTenderId().equals(id)) {
+                mPagerDetail.setCurrentItem(i);
+            }
+        }
     }
 
     public static class MyAdapterDetail extends FragmentPagerAdapter {
@@ -61,9 +66,10 @@ public class DetailsActivity extends AppCompatActivity {
 
         @Override
         public Fragment getItem(int position) {
-            return new FragmentDetails(mTenders.get(position),position);
+            return new FragmentDetails(mTenders.get(position), position);
         }
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -80,7 +86,7 @@ public class DetailsActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_info) {
-            Intent intent = new Intent(DetailsActivity.this,InfoActivity.class);
+            Intent intent = new Intent(DetailsActivity.this, InfoActivity.class);
             startActivity(intent);
             return true;
         }

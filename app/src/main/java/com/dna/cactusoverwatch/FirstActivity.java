@@ -1,5 +1,8 @@
 package com.dna.cactusoverwatch;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Window;
@@ -34,5 +37,16 @@ public class FirstActivity extends IntroActivity {
                 .backgroundDark(R.color.colorPurpurDark)
                 .fragment(R.layout.fragment_four)
                 .build());
+    }
+
+    @Override
+    public void finish() {
+        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putBoolean("atFirst", true);
+        editor.commit();
+        Intent intent = new Intent(FirstActivity.this,LoginActivity.class);
+        startActivity(intent);
+        super.finish();
     }
 }

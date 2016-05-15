@@ -67,6 +67,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
             @Override
             public void onClick(View v) {// start Details activity after clicking on card with content of selected note
                 Intent intent = new Intent(mContext, DetailsActivity.class);
+                intent.putExtra("tenderId",mTenders.get(position).getTenderId());
                 mContext.startActivity(intent);
             }
         });

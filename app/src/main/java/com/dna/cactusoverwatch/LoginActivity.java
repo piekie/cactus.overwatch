@@ -3,6 +3,7 @@ package com.dna.cactusoverwatch;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MotionEvent;
 import android.view.View;
@@ -32,6 +33,12 @@ public class LoginActivity extends AppCompatActivity {
         Firebase.setAndroidContext(this);
         final Firebase root = new Firebase(Hierarchy.DB_ROOT);
 
+        Boolean atFirst = PreferenceManager.getDefaultSharedPreferences(getBaseContext()).getBoolean("atFirst", true);
+        if (atFirst) {
+            Intent intent = new Intent(this, FirstActivity.class);
+            startActivity(intent);
+            finish();
+        }
         String token = getSharedPreferences(Constants.APP_PREFS, Context.MODE_PRIVATE).getString("token", "");
         if (!token.equals("")) {
             Intent intent = new Intent(this, MainActivity.class);

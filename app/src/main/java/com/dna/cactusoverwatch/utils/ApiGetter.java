@@ -4,7 +4,7 @@ import android.content.Context;
 import android.util.Log;
 
 import com.dna.cactusoverwatch.cashe.TendersCache;
-import com.dna.cactusoverwatch.prozorroUtils.ProgressTask;
+import com.dna.cactusoverwatch.fragments.FragmentListActual;
 import com.firebase.client.Firebase;
 
 import org.json.JSONArray;
@@ -23,7 +23,7 @@ public class ApiGetter {
     }
 
     public void getTenders(Context context) {
-        ProgressTask pt = new ProgressTask();
+        FragmentListActual.ProgressTask pt = new FragmentListActual.ProgressTask();
         pt.execute("1", Constants.PROZORRO_ALL);
 
         String result = "";
@@ -67,7 +67,7 @@ public class ApiGetter {
             e.printStackTrace();
         }
 
-        ProgressTask pt1 = new ProgressTask();
+        FragmentListActual.ProgressTask pt1 = new FragmentListActual.ProgressTask();
         pt1.execute(ids);
         try {
             result = pt1.get();
@@ -97,10 +97,10 @@ public class ApiGetter {
 
                 Tender t = new Tender(ids_access[i], description, title, "open", amount, end_price, start_date, end_date, executor);
 
-                if (_tenders.child(ids_access[i]) != null) {
+              /*  if (_tenders.child(ids_access[i]) != null) {
                     TenderCutted tc = new TenderCutted(ids_access[i], start_date, String.valueOf(278 / (1 + 277 / Constants.USERS_AVERAGE)), status, "0");
                     _tenders.child(ids_access[i]).setValue(tc);
-                }
+                }*/
 
                 TendersCache.tenders.add(t);
             }
