@@ -1,5 +1,7 @@
 package com.dna.cactusoverwatch.utils;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.util.Log;
 
 import com.firebase.client.AuthData;
@@ -39,12 +41,10 @@ public class Authentication {
             @Override
             public void onAuthenticated(AuthData authData) {
                 success[0] = true;
-                Log.i("LOGIN", "LOGIN: okay");
             }
 
             @Override
             public void onAuthenticationError(FirebaseError firebaseError) {
-                Log.i("LOGIN", "LOGIN: not okay " + firebaseError.getMessage());
                 success[0] = false;
             }
         });

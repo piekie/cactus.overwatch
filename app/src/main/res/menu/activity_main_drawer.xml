@@ -12,7 +12,7 @@
             android:title="Checked" />
         <item
             android:id="@+id/nav_settings"
-            android:icon="@drawable/ic_settings_black_24dp"
+            android:icon="@android:drawable/stat_notify_error"
             android:title="Settings" />
         <item
             android:id="@+id/nav_info"

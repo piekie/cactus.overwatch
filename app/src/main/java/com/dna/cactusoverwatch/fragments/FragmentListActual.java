@@ -48,7 +48,7 @@ public class FragmentListActual extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_list_actual, container, false);
-        TendersCache.loadTenders();
+        TendersCache.loadTenders(getActivity().getApplicationContext());
         recyclerViewActual = (RecyclerView) rootView.findViewById(R.id.recyclerViewActual);
 
         mLayoutManager = new LinearLayoutManager(getActivity());

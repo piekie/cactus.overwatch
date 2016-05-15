@@ -40,7 +40,8 @@ public class FragmentListConflict extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_list_actual, container, false);
-        TendersCache.loadTenders();
+        //TODO: NORMAL GET
+        TendersCache.loadTenders(getActivity().getApplicationContext());
         recyclerViewActual = (RecyclerView) rootView.findViewById(R.id.recyclerViewActual);
         // use a linear layout manager
         mLayoutManager = new LinearLayoutManager(getActivity());

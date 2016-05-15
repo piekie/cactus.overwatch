@@ -1,5 +1,6 @@
 package com.dna.cactusoverwatch.utils;
 
+import android.content.Context;
 import android.util.Log;
 
 import com.dna.cactusoverwatch.cashe.TendersCache;
@@ -9,7 +10,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.HashSet;
 import java.util.Random;
+import java.util.Set;
 import java.util.concurrent.ExecutionException;
 
 public class ApiGetter {
@@ -18,7 +21,7 @@ public class ApiGetter {
         Log.i("API", "api_getter initialized");
     }
 
-    public void getTenders(long page) {
+    public void getTenders(Context context) {
         ProgressTask pt = new ProgressTask();
         pt.execute("1", Constants.PROZORRO_ALL);
 
@@ -31,21 +34,31 @@ public class ApiGetter {
             e.printStackTrace();
         }
 
-        Random r = new Random();
-        int[] random = new int[10];
+        Random rand = new Random();
+
+        int shown = context.getSharedPreferences(Constants.APP_PREFS, Context.MODE_PRIVATE).getInt("shown", Constants.SHOWN_STANDARD);
+        int[] random = new int[shown];
+
+        Set<Integer> set_r = new HashSet<>(shown);
+
         for (int i = 0; i < random.length; i++) {
-            random[i] = r.nextInt(100);
+            int r = rand.nextInt(Constants.SHOWN_PEEK);
+            while (set_r.contains(r)) {
+                r = rand.nextInt(Constants.SHOWN_PEEK);
+            }
+            random[i] = r;
+            set_r.add(r);
         }
 
-        String[] ids = new String[11];
-        String[] ids_access = new String[10];
-        ids[0] = "10";
+        String[] ids = new String[shown + 1];
+        ids[0] = String.valueOf(shown);
+        String[] ids_access = new String[shown];
 
         try {
             JSONObject parsed = new JSONObject(result);
             JSONArray data = parsed.getJSONArray("data");
 
-            for (int i = 1; i < random.length + 1; i++) {
+            for (int i = 1; i <= shown; i++) {
                 ids[i] = Constants.PROZORRO_ALL + "/" + data.getJSONObject(random[i - 1]).getString("id");
                 ids_access[i - 1] = data.getJSONObject(random[i - 1]).getString("id");
             }
@@ -66,7 +79,7 @@ public class ApiGetter {
         try {
             JSONArray got = new JSONArray(result);
 
-            for (int i = 0; i < 5; i++) {
+            for (int i = 0; i < shown; i++) {
                 JSONObject obj = got.getJSONObject(i).getJSONObject("data");
 
                 String description = obj.getJSONArray("items").getJSONObject(0).getJSONObject("classification").getString("description");
@@ -78,33 +91,12 @@ public class ApiGetter {
                 String end_price = amount; //TODO:
                 String executor = "";
 
-              //  if (status.equals("closed")) {
-//                    executor;
-//                    end_price = ""
-//                    end_date = obj.
-                //}
-
                 Tender t = new Tender(ids_access[i], description, title, status, amount, end_price, start_date, end_date, executor);
                 TendersCache.tenders.add(t);
-
             }
 
         } catch (JSONException e){
             e.printStackTrace();
         }
-
-        //return tenders;
-    }
-
-    public String decode(String target) {
-        String str = target.split(" ")[0];
-        str = str.replace("\\","");
-        String[] arr = str.split("u");
-        String text = "";
-        for(int i = 1; i < arr.length; i++){
-            int hexVal = Integer.parseInt(arr[i], 16);
-            text += (char)hexVal;
-        }
-        return text;
     }
 }

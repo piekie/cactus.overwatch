@@ -78,10 +78,7 @@ public class MainActivity extends AppCompatActivity
         toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
-
-        ApiGetter ap = new ApiGetter();
-        ap.getTenders(0);
+        navigationView.setNavigationItemSelectedListener(this);;
     }
 
     private void changeColor(int newColor) {
