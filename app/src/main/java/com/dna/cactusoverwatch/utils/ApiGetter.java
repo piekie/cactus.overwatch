@@ -5,6 +5,7 @@ import android.util.Log;
 
 import com.dna.cactusoverwatch.cashe.TendersCache;
 import com.dna.cactusoverwatch.prozorroUtils.ProgressTask;
+import com.firebase.client.Firebase;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -41,7 +42,7 @@ public class ApiGetter {
 
         Set<Integer> set_r = new HashSet<>(shown);
 
-        for (int i = 0; i < random.length; i++) {
+        for (int i = 0; i < shown; i++) {
             int r = rand.nextInt(Constants.SHOWN_PEEK);
             while (set_r.contains(r)) {
                 r = rand.nextInt(Constants.SHOWN_PEEK);
@@ -79,6 +80,9 @@ public class ApiGetter {
         try {
             JSONArray got = new JSONArray(result);
 
+            Firebase.setAndroidContext(context);
+            Firebase _tenders = new Firebase(Hierarchy.DB_TENDERS);
+
             for (int i = 0; i < shown; i++) {
                 JSONObject obj = got.getJSONObject(i).getJSONObject("data");
 
@@ -91,7 +95,13 @@ public class ApiGetter {
                 String end_price = amount; //TODO:
                 String executor = "";
 
-                Tender t = new Tender(ids_access[i], description, title, status, amount, end_price, start_date, end_date, executor);
+                Tender t = new Tender(ids_access[i], description, title, "open", amount, end_price, start_date, end_date, executor);
+
+                if (_tenders.child(ids_access[i]) != null) {
+                    TenderCutted tc = new TenderCutted(ids_access[i], start_date, String.valueOf(278 / (1 + 277 / Constants.USERS_AVERAGE)), status, "0");
+                    _tenders.child(ids_access[i]).setValue(tc);
+                }
+
                 TendersCache.tenders.add(t);
             }
 
