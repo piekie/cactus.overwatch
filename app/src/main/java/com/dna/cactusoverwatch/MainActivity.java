@@ -2,12 +2,12 @@ package com.dna.cactusoverwatch;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
-import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -16,12 +16,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.astuetz.PagerSlidingTabStrip;
-import com.dna.cactusoverwatch.fragments.FragmentDetails;
 import com.dna.cactusoverwatch.fragments.FragmentListActual;
 import com.dna.cactusoverwatch.fragments.FragmentListConflict;
-import com.dna.cactusoverwatch.utils.Tender;
-
-import java.util.ArrayList;
+import com.dna.cactusoverwatch.utils.ApiGetter;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -44,6 +41,7 @@ public class MainActivity extends AppCompatActivity
         adapter = new MyPagerAdapter(getSupportFragmentManager());
 
         pager.setAdapter(adapter);
+
 
         tabs.setViewPager(pager);
         ViewPager.OnPageChangeListener mPageChangeListener = new ViewPager.OnPageChangeListener() {
@@ -82,6 +80,9 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        ApiGetter ap = new ApiGetter();
+        ap.getTenders(0);
     }
 
     private void changeColor(int newColor) {
@@ -90,8 +91,8 @@ public class MainActivity extends AppCompatActivity
         tabs.setBackgroundColor(newColor);
         toolbar.setBackgroundColor(newColor);
         setSupportActionBar(toolbar);
-
     }
+
 
     public class MyPagerAdapter extends FragmentPagerAdapter {
 
