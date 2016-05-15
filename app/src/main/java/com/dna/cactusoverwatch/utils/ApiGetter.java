@@ -67,9 +67,9 @@ public class ApiGetter {
             JSONArray got = new JSONArray(result);
 
             for (int i = 0; i < 5; i++) {
-                JSONObject obj = got.getJSONObject(i);
+                JSONObject obj = got.getJSONObject(i).getJSONObject("data");
 
-                String description = "";
+                String description = obj.getJSONArray("items").getJSONObject(0).getJSONObject("classification").getString("description");
                 String amount = obj.getJSONObject("value").getString("amount");
                 String title = obj.getJSONObject("procuringEntity").getString("name");
                 String status = obj.getString("status");
