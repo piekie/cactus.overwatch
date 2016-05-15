@@ -5,11 +5,39 @@ package com.dna.cactusoverwatch.utils;
  */
 public class Tender {
 
-    private String title;
-    private String description;
-    private String tenderId;
-    private String procuringEntity;
-    private String value;
+    private String tenderId="";
+    private String title="";
+    private String description="";
+    private String status="";
+    private String startingPrice="";
+    private String endPrice="";
+    private String dateOpened="";
+    private String dateClosed="";
+    private String executor="";
+
+    public Tender(String tenderId, String title,
+                  String description, String status,
+                  String startingPrice, String endPrice,
+                  String dateOpened, String dateClosed,
+                  String executor) {
+        this.tenderId = tenderId;
+        this.title = title;
+        this.description = description;
+        this.status = status;
+        this.startingPrice = startingPrice;
+        this.endPrice = endPrice;
+        this.dateOpened = dateOpened;
+        this.dateClosed = dateClosed;
+        this.executor = executor;
+    }
+
+    public String getTenderId() {
+        return tenderId;
+    }
+
+    public void setTenderId(String tenderId) {
+        this.tenderId = tenderId;
+    }
 
     public String getTitle() {
         return title;
@@ -27,30 +55,51 @@ public class Tender {
         this.description = description;
     }
 
-    public String getValue() {
-        return value;
+    public String getStatus() {
+        return status;
     }
 
-    public void setValue(String value) {
-        this.value = value;
+    public void setStatus(String status) {
+        this.status = status;
     }
 
-    public String getAuctionPeriod() {
-        return auctionPeriod;
+    public String getStartingPrice() {
+        return startingPrice;
     }
 
-    public void setAuctionPeriod(String auctionPeriod) {
-        this.auctionPeriod = auctionPeriod;
+    public void setStartingPrice(String startingPrice) {
+        this.startingPrice = startingPrice;
     }
 
-    public Tender(String title, String description, String auctionPeriod, String value) {
-
-        this.title = title;
-        this.description = description;
-        this.auctionPeriod = auctionPeriod;
-        this.value = value;
+    public String getEndPrice() {
+        return endPrice;
     }
 
-    private String auctionPeriod;
+    public void setEndPrice(String endPrice) {
+        this.endPrice = endPrice;
+    }
 
+    public String getDateOpened() {
+        return dateOpened;
+    }
+
+    public void setDateOpened(String dateOpened) {
+        this.dateOpened = dateOpened;
+    }
+
+    public String getDateClosed() {
+        return dateClosed;
+    }
+
+    public void setDateClosed(String dateClosed) {
+        this.dateClosed = dateClosed;
+    }
+
+    public String getExecutor() {
+        return executor;
+    }
+
+    public void setExecutor(String executor) {
+        this.executor = executor;
+    }
 }

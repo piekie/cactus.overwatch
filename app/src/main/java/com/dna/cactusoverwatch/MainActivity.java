@@ -15,8 +15,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.astuetz.PagerSlidingTabStrip;
+import com.dna.cactusoverwatch.fragments.FragmentDetails;
 import com.dna.cactusoverwatch.fragments.FragmentListActual;
 import com.dna.cactusoverwatch.fragments.FragmentListConflict;
+import com.dna.cactusoverwatch.utils.Tender;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -52,7 +56,7 @@ public class MainActivity extends AppCompatActivity
                     tabs.setIndicatorColor(getResources().getColor(R.color.colorRedDark));
                     changeColor(getResources().getColor(R.color.colorRed));
                 }
-                if (position == 0){
+                if (position == 0) {
                     tabs.setIndicatorColor(getResources().getColor(R.color.colorPrimaryDark));
                     changeColor(getResources().getColor(R.color.colorPrimary));
                 }

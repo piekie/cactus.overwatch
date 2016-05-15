@@ -1,12 +1,18 @@
 package com.dna.cactusoverwatch.adapters;
 
 import android.content.Context;
+import android.content.Intent;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
+import com.dna.cactusoverwatch.DetailsActivity;
 import com.dna.cactusoverwatch.R;
+import com.dna.cactusoverwatch.fragments.FragmentDetails;
 import com.dna.cactusoverwatch.utils.Tender;
 
 import java.util.ArrayList;
@@ -60,20 +66,22 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         holder.mRootView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {// start Details activity after clicking on card with content of selected note
-                /*Intent intent = new Intent(mContext, Details.class);
-                intent.putExtra("id", mTenders.get(position).getId());
-                mContext.startActivity(intent);*/
+                Intent intent = new Intent(mContext, DetailsActivity.class);
+                mContext.startActivity(intent);
             }
         });
 
-        /*((TextView) holder.mRootView.findViewById(R.id.text_view_date)).
-                setText(DateToStringConverter.convertDateToString(mTenders.get(position).getDate()));
+        ((TextView) holder.mRootView.findViewById(R.id.tv_title)).
+                setText((mTenders.get(position).getTitle()));
 
-        ((TextView) holder.mRootView.findViewById(R.id.text_view_content)).
-                setText(mTenders.get(position).getContent());
+        ((TextView) holder.mRootView.findViewById(R.id.tv_description)).
+                setText(mTenders.get(position).getDescription());
 
-        ((TextView) holder.mRootView.findViewById(R.id.text_view_name)).
-                setText(mTenders.get(position).getName());*/
+        ((TextView) holder.mRootView.findViewById(R.id.tv_actual_period)).
+                setText(mTenders.get(position).getDateOpened());
+
+        ((TextView) holder.mRootView.findViewById(R.id.tv_value)).
+                setText(mTenders.get(position).getStartingPrice());
 
     }
 
