@@ -14,7 +14,7 @@
         <item
             android:id="@+id/nav_cake"
             android:icon="@drawable/cake"
-            android:title="Корисна інформація" />
+            android:title="Приємності" />
         <item
             android:id="@+id/nav_go_out"
             android:icon="@drawable/ic_login"

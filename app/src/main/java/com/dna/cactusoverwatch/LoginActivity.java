@@ -18,6 +18,7 @@ import com.dna.cactusoverwatch.utils.Constants;
 import com.dna.cactusoverwatch.utils.Hierarchy;
 import com.firebase.client.AuthData;
 import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
 
 public class LoginActivity extends AppCompatActivity {
     Button btnLogin;
@@ -42,11 +43,26 @@ public class LoginActivity extends AppCompatActivity {
 
         String token = getSharedPreferences(Constants.APP_PREFS, Context.MODE_PRIVATE).getString("token", "");
         if (!token.equals("")) {
-            Intent intent = new Intent(this, MainActivity.class);
-            startActivity(intent);
-            finish();
+            root.authWithCustomToken(token, new Firebase.AuthResultHandler() {
+                @Override
+                public void onAuthenticated(AuthData authData) {
+                    //TODO: smth
+                }
+
+                @Override
+                public void onAuthenticationError(FirebaseError firebaseError) {
+                    //TODO: smth
+                }
+            });
+
+            AuthData authData = root.getAuth();
+            if (authData != null) {
+                Intent intent = new Intent(this, MainActivity.class);
+                startActivity(intent);
+                finish();
+            }
         }
-        
+
         etEmail = (EditText) findViewById(R.id.et_email);
         etPassword = (EditText) findViewById(R.id.et_password);
 

@@ -90,22 +90,22 @@ public class ApiGetter {
                 String amount = obj.getJSONObject("value").getString("amount");
                 String title = obj.getJSONObject("procuringEntity").getString("name");
                 String status = obj.getString("status");
-                String start_date = obj.getJSONObject("complaintPeriod").getString("startDate");
-                String end_date = obj.getJSONObject("enquiryPeriod").getString("endDate");
+                String start_date = Constants.format(obj.getJSONObject("complaintPeriod").getString("startDate"));
+                String end_date = Constants.format(obj.getJSONObject("enquiryPeriod").getString("endDate"));
                 String end_price = amount; //TODO:
                 String executor = "";
 
                 Tender t = new Tender(ids_access[i], description, title, "open", amount, end_price, start_date, end_date, executor);
 
-              /*  if (_tenders.child(ids_access[i]) != null) {
+                if (_tenders.child(ids_access[i]) != null) {
                     TenderCutted tc = new TenderCutted(ids_access[i], start_date, String.valueOf(278 / (1 + 277 / Constants.USERS_AVERAGE)), status, "0");
                     _tenders.child(ids_access[i]).setValue(tc);
-                }*/
+                }
 
                 TendersCache.tenders.add(t);
             }
 
-        } catch (JSONException e){
+        } catch (JSONException e) {
             e.printStackTrace();
         }
     }
