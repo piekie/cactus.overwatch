@@ -17,6 +17,7 @@ import com.dna.cactusoverwatch.R;
 import com.dna.cactusoverwatch.adapters.ListViewAdapter;
 import com.dna.cactusoverwatch.cashe.TendersCache;
 import com.dna.cactusoverwatch.utils.Tender;
+import com.firebase.client.Firebase;
 
 import java.util.ArrayList;
 
@@ -71,7 +72,7 @@ public class FragmentDetails extends Fragment {
         ((Button) footer.findViewById(R.id.button_good)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+//                Firebase okay
             }
         });
         ((Button) footer.findViewById(R.id.button_bad)).setOnClickListener(new View.OnClickListener() {

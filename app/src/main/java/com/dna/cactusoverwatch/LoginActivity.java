@@ -45,6 +45,7 @@ public class LoginActivity extends AppCompatActivity {
                     case MotionEvent.ACTION_UP:
                         String email = etEmail.getText().toString();
                         String password = etPassword.getText().toString();
+
                         if (validEmail(email) && validPassword(password)) {
                             Authentication.login(root, email, password);
                         } else {

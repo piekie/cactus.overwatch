@@ -1,7 +1,8 @@
 package com.dna.cactusoverwatch.utils;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.firebase.client.AuthData;
 import com.firebase.client.Firebase;
@@ -34,23 +35,21 @@ public class Authentication {
     }
 
     static public boolean login(Firebase root, String email, String password) {
-            final boolean[] success = new boolean[1];
+        final boolean[] success = new boolean[1];
 
-            root.authWithPassword(email, password, new Firebase.AuthResultHandler() {
-                @Override
-                public void onAuthenticated(AuthData authData) {
-                    success[0] = true;
-                    Log.i("LOGIN", "LOGIN: okay");
-                }
+        root.authWithPassword(email, password, new Firebase.AuthResultHandler() {
+            @Override
+            public void onAuthenticated(AuthData authData) {
+                success[0] = true;
+            }
 
-                @Override
-                public void onAuthenticationError(FirebaseError firebaseError) {
-                    Log.i("LOGIN", "LOGIN: not okay " + firebaseError.getMessage());
-                    success[0] = false;
-                }
-            });
+            @Override
+            public void onAuthenticationError(FirebaseError firebaseError) {
+                success[0] = false;
+            }
+        });
 
-            return success[0];
+        return success[0];
     }
 
 

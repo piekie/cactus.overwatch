@@ -1,5 +1,7 @@
 package com.dna.cactusoverwatch.cashe;
 
+import android.content.Context;
+
 import com.dna.cactusoverwatch.utils.ApiGetter;
 import com.dna.cactusoverwatch.utils.Tender;
 
@@ -12,8 +14,8 @@ public class TendersCache {
 
     public static ArrayList<Tender> tenders = new ArrayList<Tender>();
 
-    public static void loadTenders() {
+    public static void loadTenders(Context context) {
         ApiGetter ap = new ApiGetter();
-        ap.getTenders(0);
+        ap.getTenders(context);
     }
 }
