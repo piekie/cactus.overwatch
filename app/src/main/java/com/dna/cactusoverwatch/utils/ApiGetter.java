@@ -66,7 +66,7 @@ public class ApiGetter {
         try {
             JSONArray got = new JSONArray(result);
 
-            String s = parsed.toString().replace("\\","");
+           // String s = parsed.toString().replace("\\","");
             for (int i = 0; i < 5; i++) {
                 JSONObject obj = got.getJSONObject(i).getJSONObject("data");
 
