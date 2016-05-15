@@ -43,7 +43,7 @@ public class FirstActivity extends IntroActivity {
     public void finish() {
         SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
         SharedPreferences.Editor editor = sharedPref.edit();
-        editor.putBoolean("atFirst", true);
+        editor.putBoolean("atFirst", false);
         editor.commit();
         Intent intent = new Intent(FirstActivity.this,LoginActivity.class);
         startActivity(intent);

@@ -15,9 +15,9 @@ public class TendersCache {
     public static ArrayList<Tender> tenders = new ArrayList<Tender>();
 
     public static void loadTenders(Context context) {
-        if (true) {
+
             ApiGetter ap = new ApiGetter();
             ap.getTenders(context);
-        }
+
     }
 }

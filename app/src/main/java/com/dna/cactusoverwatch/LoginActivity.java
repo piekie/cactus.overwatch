@@ -39,6 +39,7 @@ public class LoginActivity extends AppCompatActivity {
             startActivity(intent);
             finish();
         }
+
         String token = getSharedPreferences(Constants.APP_PREFS, Context.MODE_PRIVATE).getString("token", "");
         if (!token.equals("")) {
             Intent intent = new Intent(this, MainActivity.class);
@@ -51,7 +52,6 @@ public class LoginActivity extends AppCompatActivity {
         etPassword = (EditText) findViewById(R.id.et_password);
 
         btnLogin = (Button) findViewById(R.id.button_login);
-
 
         btnLogin.setOnTouchListener(new View.OnTouchListener() {
             @Override
