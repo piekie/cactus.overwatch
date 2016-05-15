@@ -1,5 +1,6 @@
 package com.dna.cactusoverwatch;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -12,7 +13,9 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.dna.cactusoverwatch.utils.Authentication;
+import com.dna.cactusoverwatch.utils.Constants;
 import com.dna.cactusoverwatch.utils.Hierarchy;
+import com.firebase.client.AuthData;
 import com.firebase.client.Firebase;
 
 public class LoginActivity extends AppCompatActivity {
@@ -28,6 +31,14 @@ public class LoginActivity extends AppCompatActivity {
 
         Firebase.setAndroidContext(this);
         final Firebase root = new Firebase(Hierarchy.DB_ROOT);
+
+        String token = getSharedPreferences(Constants.APP_PREFS, Context.MODE_PRIVATE).getString("token", "");
+        if (!token.equals("")) {
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+            finish();
+        }
+
 
         etEmail = (EditText) findViewById(R.id.et_email);
         etPassword = (EditText) findViewById(R.id.et_password);
@@ -48,6 +59,17 @@ public class LoginActivity extends AppCompatActivity {
 
                         if (validEmail(email) && validPassword(password)) {
                             Authentication.login(root, email, password);
+
+                            AuthData authData = root.getAuth();
+                            if (authData != null) {
+                                getSharedPreferences(Constants.APP_PREFS, Context.MODE_PRIVATE).edit().
+                                        putString("token", authData.getToken()).
+                                        commit();
+                            }
+
+                            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                            startActivity(intent);
+                            finish();
                         } else {
                             Toast.makeText(LoginActivity.this, "Some field is not valid", Toast.LENGTH_SHORT).show();
                         }
