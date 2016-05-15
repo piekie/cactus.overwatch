@@ -5,10 +5,11 @@
     android:layout_height="match_parent">
 
     <ImageView
-        android:background="@color/white"
+        android:background="@color/colorPurpurDark"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="2"/>
+        android:layout_weight="2" />
+
     <RelativeLayout
         android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
@@ -31,7 +32,8 @@
             android:layout_marginTop="8dp"
             android:textSize="18dp"
             android:textColor="@color/white"
-            android:text="Ми щиро сподіваємось, що ви відповідально підійдете до прийняття рішення стосовно кожного тендеру."    android:layout_height="wrap_content"
+            android:text="Ми щиро сподіваємось, що ви відповідально підійдете до прийняття рішення стосовно кожного тендеру."
+            android:layout_height="wrap_content"
             android:layout_below="@+id/imageView2"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" />

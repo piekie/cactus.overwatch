@@ -56,6 +56,8 @@ public class RegistrationActivity extends AppCompatActivity {
             String password = etPassword.getText().toString();
 
             Authentication.signup(root, email, password);
+
+            finish();
         } else {
             Toast.makeText(RegistrationActivity.this, "Some field is not valid", Toast.LENGTH_SHORT).show();
         }

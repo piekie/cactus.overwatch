@@ -14,4 +14,5 @@
     <string name="title_activity_info">InfoActivity</string>
     <string name="title_activity_settings">SettingsActivity</string>
     <string name="description_1">Вітаємо вас у першому мобільному додатку, який дозволить кожному громадянину контролювати державні закупівлі та тендери.</string>
+    <string name="title_activity_cake">CakeActivity</string>
 </resources>

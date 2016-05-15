@@ -1,5 +1,6 @@
 package com.dna.cactusoverwatch;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -21,6 +22,10 @@ import android.view.WindowManager;
 import com.astuetz.PagerSlidingTabStrip;
 import com.dna.cactusoverwatch.fragments.FragmentListActual;
 import com.dna.cactusoverwatch.fragments.FragmentListConflict;
+import com.dna.cactusoverwatch.utils.Constants;
+import com.dna.cactusoverwatch.utils.Hierarchy;
+import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseApp;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -209,9 +214,21 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.nav_main) {
 
         } else if (id == R.id.nav_go_out) {
-            //TODO Log out
+            Firebase fb = new Firebase(Hierarchy.DB_ROOT);
+            fb.unauth();
+
+            getSharedPreferences(Constants.APP_PREFS, Context.MODE_PRIVATE).edit()
+                    .remove("token")
+                    .apply();
+
+            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+            startActivity(intent);
+            finish();
         } else if (id == R.id.nav_info) {
             Intent intent = new Intent(MainActivity.this, InfoActivity.class);
+            startActivity(intent);
+        } else if (id == R.id.nav_cake) {
+            Intent intent = new Intent(MainActivity.this, CakeActivity.class);
             startActivity(intent);
         }
 

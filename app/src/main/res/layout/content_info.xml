@@ -24,12 +24,14 @@
                 android:padding="8dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
+
                 <ImageView
                     android:id="@+id/image"
                     android:layout_centerHorizontal="true"
                     android:background="@drawable/cancel_form"
                     android:layout_width="150dp"
                     android:layout_height="150dp" />
+
                 <TextView
                     android:layout_marginTop="8dp"
                     android:text="Звертайте увагу на дрібниці, наприклад, неправильно написана назва товару чи послуги, може свідчити про спробу замовника приховати свій тендер від більшості виконавців, окрім тих, хто знає як саме назвали товар. "
@@ -38,6 +40,7 @@
                     android:layout_height="match_parent" />
             </RelativeLayout>
         </android.support.v7.widget.CardView>
+
         <android.support.v7.widget.CardView
             android:layout_marginTop="8dp"
             android:layout_marginLeft="8dp"
@@ -52,13 +55,15 @@
                 android:background="@color/gray"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
+
                 <ImageView
                     android:id="@+id/image1"
                     android:layout_centerHorizontal="true"
                     android:background="@drawable/text_mistake"
                     android:layout_width="wrap_content"
                     android:layout_height="120dp" />
-               <TextView
+
+                <TextView
                     android:layout_marginTop="8dp"
                     android:text="Звертайте увагу на дрібниці, наприклад, неправильно написана назва товару чи послуги, може свідчити про спробу замовника приховати свій тендер від більшості виконавців, окрім тих, хто знає як саме назвали товар. "
                     android:layout_width="match_parent"
@@ -66,6 +71,7 @@
                     android:layout_height="match_parent" />
             </RelativeLayout>
         </android.support.v7.widget.CardView>
+
         <android.support.v7.widget.CardView
             android:layout_marginTop="8dp"
             android:layout_marginLeft="8dp"
@@ -79,19 +85,23 @@
                 android:padding="8dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
+
                 <ImageView
                     android:id="@+id/image2"
                     android:layout_centerHorizontal="true"
                     android:background="@drawable/clock"
                     android:layout_width="150dp"
                     android:layout_height="150dp" />
+
                 <TextView
                     android:layout_marginTop="8dp"
-                    android:text="Також натякнути на можливий нечесний намір замовника може дата та час опублікування тендеру. Наприклад, коли тендер відкривається вночі і закривається вранці."  android:layout_width="match_parent"
+                    android:text="Також натякнути на можливий нечесний намір замовника може дата та час опублікування тендеру. Наприклад, коли тендер відкривається вночі і закривається вранці."
+                    android:layout_width="match_parent"
                     android:layout_below="@id/image2"
                     android:layout_height="match_parent" />
             </RelativeLayout>
         </android.support.v7.widget.CardView>
+
         <android.support.v7.widget.CardView
             android:layout_marginTop="8dp"
             android:layout_marginLeft="8dp"
@@ -106,6 +116,7 @@
                 android:background="@color/gray"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
+
                 <ImageView
                     android:id="@+id/image3"
                     android:layout_centerHorizontal="true"
@@ -114,6 +125,7 @@
                     android:layout_height="120dp" />
             </RelativeLayout>
         </android.support.v7.widget.CardView>
+
         <android.support.v7.widget.CardView
             android:layout_marginTop="8dp"
             android:layout_marginLeft="8dp"
@@ -127,6 +139,7 @@
                 android:padding="8dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_marginTop="8dp"
@@ -134,6 +147,7 @@
                     android:layout_height="match_parent" />
             </RelativeLayout>
         </android.support.v7.widget.CardView>
+
         <android.support.v7.widget.CardView
             android:layout_marginTop="8dp"
             android:layout_marginLeft="8dp"
@@ -148,6 +162,7 @@
                 android:background="@color/gray"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
+
                 <ImageView
                     android:id="@+id/image5"
                     android:layout_centerHorizontal="true"
@@ -156,6 +171,7 @@
                     android:layout_height="120dp" />
             </RelativeLayout>
         </android.support.v7.widget.CardView>
+
         <android.support.v7.widget.CardView
             android:layout_marginTop="8dp"
             android:layout_marginLeft="8dp"
@@ -169,6 +185,7 @@
                 android:padding="8dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_marginTop="8dp"
