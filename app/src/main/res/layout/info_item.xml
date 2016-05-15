@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="4dp"
+    android:layout_marginEnd="@dimen/small_margin"
+    android:layout_marginStart="@dimen/small_margin"
+    android:layout_marginTop="4dp"
+    card_view:cardCornerRadius="4dp">
+
+    <RelativeLayout
+        android:padding="@dimen/medium_margin"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Національний технічний університет України Київський політехнічний інститут"
+            android:textColor="@color/black"
+            android:id="@+id/tv_title"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="послуги з постачання продуктів харчування та напоїв з доставкою до місця розташування СГ СОТ «Глобус» НТУУ "
+            android:id="@+id/tv_description"
+            android:layout_below="@+id/tv_title"
+            android:layout_alignLeft="@+id/tv_title"
+            android:layout_alignStart="@+id/tv_title"
+            android:layout_marginTop="8dp" />
+
+        <TextView
+            android:textColor="@color/colorPrimary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="1000098 грн"
+            android:id="@+id/tv_value"
+            android:layout_below="@+id/tv_description"
+            android:layout_alignLeft="@+id/tv_description"
+            android:layout_alignStart="@+id/tv_description"
+            android:layout_marginTop="8dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="19.05.2016 10:00"
+            android:id="@+id/tv_actual_period"
+            android:layout_alignBottom="@+id/tv_value"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>

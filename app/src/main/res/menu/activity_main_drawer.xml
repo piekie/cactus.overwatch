@@ -4,20 +4,17 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_main"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="Main" />
-        <item
-            android:id="@+id/nav_checked"
-            android:icon="@android:drawable/stat_notify_error"
-            android:title="Checked" />
-        <item
-            android:id="@+id/nav_settings"
-            android:icon="@android:drawable/stat_notify_error"
-            android:title="Settings" />
+            android:icon="@drawable/ic_home"
+            android:title="Головна" />
+
         <item
             android:id="@+id/nav_info"
             android:icon="@android:drawable/ic_dialog_info"
-            android:title="Info" />
+            android:title="Корисна інформація" />
+        <item
+            android:id="@+id/nav_go_out"
+            android:icon="@drawable/ic_login"
+            android:title="Вийти" />
     </group>
 
 </menu>

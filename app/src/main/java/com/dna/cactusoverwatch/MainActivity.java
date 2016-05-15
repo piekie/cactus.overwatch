@@ -1,8 +1,7 @@
 package com.dna.cactusoverwatch;
 
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
-import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
@@ -16,25 +15,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.ListView;
+import android.view.Window;
+import android.view.WindowManager;
 
 import com.astuetz.PagerSlidingTabStrip;
-import com.dna.cactusoverwatch.cashe.TendersCache;
 import com.dna.cactusoverwatch.fragments.FragmentListActual;
 import com.dna.cactusoverwatch.fragments.FragmentListConflict;
-import com.dna.cactusoverwatch.utils.ApiGetter;
-import com.pnikosis.materialishprogress.ProgressWheel;
-
-import org.json.JSONArray;
-import org.json.JSONObject;
-import org.shaded.apache.http.util.ByteArrayBuffer;
-
-import java.io.BufferedInputStream;
-import java.io.InputStream;
-import java.net.URL;
-import java.net.URLConnection;
-import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -57,7 +43,8 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle("");
-        setSupportActionBar(toolbar);;
+        setSupportActionBar(toolbar);
+        ;
 
         tabs = (PagerSlidingTabStrip) findViewById(R.id.tabs);
         pager = (ViewPager) findViewById(R.id.pager);
@@ -76,10 +63,36 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onPageSelected(int position) {
                 if (position == 1) {
+                    Window window = getWindow();
+
+// clear FLAG_TRANSLUCENT_STATUS flag:
+                    window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+
+// add FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS flag to the window
+                    window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+
+// finally change the color
+
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                        window.setStatusBarColor(getResources().getColor(R.color.colorRedDark));
+                    }
                     tabs.setIndicatorColor(getResources().getColor(R.color.colorRedDark));
                     changeColor(getResources().getColor(R.color.colorRed));
                 }
                 if (position == 0) {
+                    Window window = getWindow();
+
+// clear FLAG_TRANSLUCENT_STATUS flag:
+                    window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+
+// add FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS flag to the window
+                    window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+
+// finally change the color
+
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                        window.setStatusBarColor(getResources().getColor(R.color.colorPrimaryDark));
+                    }
                     tabs.setIndicatorColor(getResources().getColor(R.color.colorPrimaryDark));
                     changeColor(getResources().getColor(R.color.colorPrimary));
                 }
@@ -102,7 +115,8 @@ public class MainActivity extends AppCompatActivity
         toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);;
+        navigationView.setNavigationItemSelectedListener(this);
+        ;
 
     }
 
@@ -163,7 +177,28 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.search, menu);
+        return true;
+    }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_info) {
+
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
@@ -173,10 +208,8 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.nav_main) {
 
-        } else if (id == R.id.nav_checked) {
-        } else if (id == R.id.nav_settings) {
-            Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
-            startActivity(intent);
+        } else if (id == R.id.nav_go_out) {
+            //TODO Log out
         } else if (id == R.id.nav_info) {
             Intent intent = new Intent(MainActivity.this, InfoActivity.class);
             startActivity(intent);

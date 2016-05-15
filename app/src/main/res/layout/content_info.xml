@@ -1,15 +1,182 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.dna.cactusoverwatch.InfoActivity"
     tools:showIn="@layout/app_bar_info">
 
-</RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.CardView
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:id="@+id/coordinator"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:padding="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:id="@+id/image"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/cancel_form"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp" />
+                <TextView
+                    android:layout_marginTop="8dp"
+                    android:text="Звертайте увагу на дрібниці, наприклад, неправильно написана назва товару чи послуги, може свідчити про спробу замовника приховати свій тендер від більшості виконавців, окрім тих, хто знає як саме назвали товар. "
+                    android:layout_width="match_parent"
+                    android:layout_below="@id/image"
+                    android:layout_height="match_parent" />
+            </RelativeLayout>
+        </android.support.v7.widget.CardView>
+        <android.support.v7.widget.CardView
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_below="@id/coordinator"
+            android:id="@+id/coordinator1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:padding="8dp"
+                android:background="@color/gray"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:id="@+id/image1"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/text_mistake"
+                    android:layout_width="wrap_content"
+                    android:layout_height="120dp" />
+               <TextView
+                    android:layout_marginTop="8dp"
+                    android:text="Звертайте увагу на дрібниці, наприклад, неправильно написана назва товару чи послуги, може свідчити про спробу замовника приховати свій тендер від більшості виконавців, окрім тих, хто знає як саме назвали товар. "
+                    android:layout_width="match_parent"
+                    android:layout_below="@id/image1"
+                    android:layout_height="match_parent" />
+            </RelativeLayout>
+        </android.support.v7.widget.CardView>
+        <android.support.v7.widget.CardView
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_below="@id/coordinator1"
+            android:id="@+id/coordinator2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:padding="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:id="@+id/image2"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/clock"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp" />
+                <TextView
+                    android:layout_marginTop="8dp"
+                    android:text="Також натякнути на можливий нечесний намір замовника може дата та час опублікування тендеру. Наприклад, коли тендер відкривається вночі і закривається вранці."  android:layout_width="match_parent"
+                    android:layout_below="@id/image2"
+                    android:layout_height="match_parent" />
+            </RelativeLayout>
+        </android.support.v7.widget.CardView>
+        <android.support.v7.widget.CardView
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_below="@id/coordinator2"
+            android:id="@+id/coordinator3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:padding="8dp"
+                android:background="@color/gray"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:id="@+id/image3"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/date_mistake"
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp" />
+            </RelativeLayout>
+        </android.support.v7.widget.CardView>
+        <android.support.v7.widget.CardView
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_below="@id/coordinator3"
+            android:id="@+id/coordinator4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:padding="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="8dp"
+                    android:text="Привернути увагу повинні занадто висока або, навпаки, занадто низька ціна, оголошена замовником."
+                    android:layout_height="match_parent" />
+            </RelativeLayout>
+        </android.support.v7.widget.CardView>
+        <android.support.v7.widget.CardView
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_below="@id/coordinator4"
+            android:id="@+id/coordinator5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:padding="8dp"
+                android:background="@color/gray"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:id="@+id/image5"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/money_mistake"
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp" />
+            </RelativeLayout>
+        </android.support.v7.widget.CardView>
+        <android.support.v7.widget.CardView
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_below="@id/coordinator5"
+            android:id="@+id/coordinator6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:padding="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="8dp"
+                    android:text="Жоден з вищеперелічених пунктів не є гарантією того, що тендер шахрайський. Втім, кожен з них є тим, що повинно привернути вашу увагу до закупівлі.
+Будьте пильні та прискіпливі.
+Успіхів у цій важливій та цікавій справі!"
+                    android:layout_height="match_parent" />
+            </RelativeLayout>
+        </android.support.v7.widget.CardView>
+    </RelativeLayout>
+</ScrollView>
