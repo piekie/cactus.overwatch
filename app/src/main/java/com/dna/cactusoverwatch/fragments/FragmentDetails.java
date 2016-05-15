@@ -16,8 +16,13 @@ import com.dna.cactusoverwatch.DetailsActivity;
 import com.dna.cactusoverwatch.R;
 import com.dna.cactusoverwatch.adapters.ListViewAdapter;
 import com.dna.cactusoverwatch.cashe.TendersCache;
+import com.dna.cactusoverwatch.utils.Constants;
+import com.dna.cactusoverwatch.utils.Hierarchy;
 import com.dna.cactusoverwatch.utils.Tender;
+import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
+import com.firebase.client.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -65,6 +70,8 @@ public class FragmentDetails extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_details, container, false);
 
+        Firebase.setAndroidContext(getActivity().getApplicationContext());
+
         listView = (ListView) view.findViewById(R.id.listView);
         fillArray();
         listViewAdapter = new ListViewAdapter(getActivity(), fields, fieldsContent);
@@ -72,13 +79,37 @@ public class FragmentDetails extends Fragment {
         ((Button) footer.findViewById(R.id.button_good)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Firebase okay
+                final Firebase _tender = new Firebase(Hierarchy.DB_TENDERS).child(tender.getTenderId());
+
+                _tender.child("score").addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        _tender.child("score").setValue( (Integer) dataSnapshot.getValue() + Constants.VOTE);
+                    }
+
+                    @Override
+                    public void onCancelled(FirebaseError firebaseError) {
+
+                    }
+                });
             }
         });
         ((Button) footer.findViewById(R.id.button_bad)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                final Firebase _tender = new Firebase(Hierarchy.DB_TENDERS).child(tender.getTenderId());
 
+                _tender.child("score").addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        _tender.child("score").setValue( (Integer) dataSnapshot.getValue() - Constants.VOTE);
+                    }
+
+                    @Override
+                    public void onCancelled(FirebaseError firebaseError) {
+
+                    }
+                });
             }
         });
         ((Button) footer.findViewById(R.id.button_skip)).setOnClickListener(new View.OnClickListener() {
