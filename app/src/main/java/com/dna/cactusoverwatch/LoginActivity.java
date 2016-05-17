@@ -21,6 +21,7 @@ import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 
 public class LoginActivity extends AppCompatActivity {
+
     Button btnLogin;
     Button btnSignUp;
     EditText etEmail;

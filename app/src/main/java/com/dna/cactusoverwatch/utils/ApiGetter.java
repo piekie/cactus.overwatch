@@ -26,6 +26,7 @@ public class ApiGetter {
         FragmentListActual.ProgressTask pt = new FragmentListActual.ProgressTask();
         pt.execute("1", Constants.PROZORRO_ALL);
 
+
         String result = "";
         try {
             result = pt.get();

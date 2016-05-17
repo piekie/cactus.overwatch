@@ -45,7 +45,7 @@ public class FirstActivity extends IntroActivity {
         SharedPreferences.Editor editor = sharedPref.edit();
         editor.putBoolean("atFirst", false);
         editor.commit();
-        Intent intent = new Intent(FirstActivity.this,LoginActivity.class);
+        Intent intent = new Intent(FirstActivity.this, LoginActivity.class);
         startActivity(intent);
         super.finish();
     }

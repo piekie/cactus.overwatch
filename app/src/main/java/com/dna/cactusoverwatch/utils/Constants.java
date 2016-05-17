@@ -9,6 +9,7 @@ import java.util.Locale;
 /**
  * Created by piekie on 5/14/2016.
  */
+
 public class Constants {
     public static final int SHOWN_STANDARD = 20;
     public static final int SHOWN_PEEK = 100;

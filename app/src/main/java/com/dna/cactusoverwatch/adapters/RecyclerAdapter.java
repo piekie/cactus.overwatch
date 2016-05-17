@@ -22,6 +22,7 @@ import java.util.ArrayList;
  * Adapter for RecyclerView in MainActivity.
  */
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHolder> {
+
     private static final String TAG = "mRecyclerAdapter";
     private ArrayList<Tender> mTenders;
     private Context mContext;

@@ -75,10 +75,10 @@ public class CakeActivity extends AppCompatActivity
         if (id == R.id.nav_camera) {
             // Handle the camera action
         } else if (id == R.id.nav_main) {
-            Intent intent = new Intent(CakeActivity.this,MainActivity.class);
+            Intent intent = new Intent(CakeActivity.this, MainActivity.class);
             startActivity(intent);
         } else if (id == R.id.nav_info) {
-            Intent intent = new Intent(CakeActivity.this,InfoActivity.class);
+            Intent intent = new Intent(CakeActivity.this, InfoActivity.class);
             startActivity(intent);
         } else if (id == R.id.nav_go_out) {
 

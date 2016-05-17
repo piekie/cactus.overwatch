@@ -23,6 +23,7 @@ public class FragmentListConflict extends Fragment  {
 
     private static final String ARG_POSITION = "position";
 
+
     private ArrayList<Tender> tenders = new ArrayList<Tender>();
     private RecyclerView recyclerViewActual;
     private RecyclerView.LayoutManager mLayoutManager;

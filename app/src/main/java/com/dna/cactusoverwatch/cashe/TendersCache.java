@@ -12,6 +12,7 @@ import java.util.ArrayList;
  */
 public class TendersCache {
 
+
     public static ArrayList<Tender> tenders = new ArrayList<Tender>();
 
     public static void loadTenders(Context context) {

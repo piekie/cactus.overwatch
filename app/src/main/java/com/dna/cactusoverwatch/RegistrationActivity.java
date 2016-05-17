@@ -70,6 +70,7 @@ public class RegistrationActivity extends AppCompatActivity {
         return m.matches();
     }
 
+
     private boolean passwordValid() {
         if (etPassword.getText().toString().equals(etPasswordConfirm.getText().toString())) {
             if(!etPassword.equals("")){

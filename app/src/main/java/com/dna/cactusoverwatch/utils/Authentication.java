@@ -13,6 +13,7 @@ import com.firebase.client.FirebaseError;
  */
 public class Authentication {
 
+
     public static boolean working;
 
     static public boolean loginWithToken(Firebase root, String token) {

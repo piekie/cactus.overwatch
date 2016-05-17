@@ -6,6 +6,7 @@ import java.util.ArrayList;
  * Created by piekie on 5/14/2016.
  */
 public class User {
+
     private String email;
     private String password;
 

@@ -17,6 +17,7 @@ import com.dna.cactusoverwatch.R;
  * Created by Alex on 15.05.2016.
  */
 public class ListViewAdapter extends BaseAdapter {
+
     Context ctx;
     LayoutInflater lInflater;
     String[] fields;

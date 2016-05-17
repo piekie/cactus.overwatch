@@ -36,12 +36,10 @@ public class FragmentListActual extends Fragment  implements MainActivity.onLoad
 
     private static final String ARG_POSITION = "position";
 
-
     private static ProgressWheel wheel;
     private RecyclerView recyclerViewActual;
     private RecyclerView.LayoutManager mLayoutManager;
     private int position;
-
 
     public static FragmentListActual newInstance(int position) {
         FragmentListActual f = new FragmentListActual();

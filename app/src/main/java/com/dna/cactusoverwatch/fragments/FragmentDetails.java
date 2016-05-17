@@ -125,6 +125,7 @@ public class FragmentDetails extends Fragment {
         listView.setAdapter(listViewAdapter);
 
         return view;
+
     }
 
 

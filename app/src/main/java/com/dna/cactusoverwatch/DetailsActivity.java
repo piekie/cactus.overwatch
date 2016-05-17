@@ -22,6 +22,7 @@ import java.util.ArrayList;
 
 public class DetailsActivity extends AppCompatActivity {
 
+
     public static ViewPager mPagerDetail;
 
     public static ViewPager getmPagerDetail() {

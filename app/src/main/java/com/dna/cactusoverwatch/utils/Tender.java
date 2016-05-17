@@ -5,6 +5,7 @@ package com.dna.cactusoverwatch.utils;
  */
 public class Tender {
 
+
     private String tenderId="";
     private String title="";
     private String description="";
